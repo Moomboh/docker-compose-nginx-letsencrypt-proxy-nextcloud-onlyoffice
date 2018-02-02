@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  nextcloud-db:
+    image: mariadb
+    restart: always
+    volumes:
+      - nextcloud-db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+    env_file:
+      - db.env
+
+  nextcloud:
+    image: nextcloud
+    restart: always
+    volumes:
+      - nextcloud:/var/www/html
+    environment:
+      - VIRTUAL_HOST=
+      - LETSENCRYPT_HOST=
+      - LETSENCRYPT_EMAIL=
+      - MYSQL_HOST=nextcloud-db
+    env_file:
+      - db.env
+    depends_on:
+      - nextcloud-db
+
+volumes:
+  nextcloud-db:
+  nextcloud:
+
+networks:
+  default:
+    external:
+      name: webproxy

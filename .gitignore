@@ -1,0 +1,4 @@
+/nginx-proxy-letsencrypt/nginx.tmpl
+/onlyoffice/config/
+/onlyoffice/certs/
+/onlyoffice/document_fonts/
