@@ -71,7 +71,7 @@ services:
   #   image: onlyoffice/mailserver:latest
   #   depends_on:
   #    - onlyoffice-mysql-server
-  #   hostname: abyssy.com
+  #   hostname: example.com
   #   environment:
   #      - MYSQL_SERVER=onlyoffice-mysql-server
   #      - MYSQL_SERVER_PORT=3306
